@@ -1,0 +1,116 @@
+{
+    "permissions": {
+        "data": [
+            {
+                "name": "Dashboard",
+                "icon": "mdi-view-dashboard",
+                "slug": "dashboard"
+            },
+            {
+                "name": "Kasir",
+                "icon": "mdi-desktop-classic",
+                "slug": "cashier"
+            },
+            {
+                "name": "Barang",
+                "slug": "product",
+                "icon": "mdi-calendar-text",
+                "children": [
+                    {
+                        "name": "Data Barang",
+                        "slug": "product"
+                    },
+                    {
+                        "name": "Kategori Barang",
+                        "slug": "category"
+                    },
+                    {
+                        "name": "Satuan Barang",
+                        "slug": "unit"
+                    }
+                ]
+            },
+            {
+                "name": "Penjualan",
+                "slug": "sales",
+                "icon": "mdi-basket"
+            },
+            {
+                "name": "Pembelian",
+                "slug": "purchase",
+                "icon": "mdi-store",
+                "children": [
+                    {
+                        "name": "Pembelian Barang",
+                        "slug": "purchase"
+                    },
+                    {
+                        "name": "Pembelian Peralatan",
+                        "slug": "expense"
+                    }
+                ]
+            },
+            {
+                "name": "Promo",
+                "slug": "discount",
+                "icon": "mdi-ticket-confirmation"
+            },
+            {
+                "name": "Stok",
+                "slug": "stock",
+                "icon": "mdi-library-shelves"
+            },
+            {
+                "name": "Pengguna",
+                "slug": "user",
+                "icon": "mdi-account",
+                "children": [
+                    {
+                        "name": "Pengguna",
+                        "slug": "user"
+                    },
+                    {
+                        "name": "Pelanggan",
+                        "slug": "customer"
+                    },
+                    {
+                        "name": "Pemasok",
+                        "slug": "supplier"
+                    },
+                    {
+                        "name": "Peranan",
+                        "slug": "role"
+                    }
+                ]
+            },
+            {
+                "name": "Laporan",
+                "slug": "report-sales",
+                "icon": "mdi-file",
+                "children": [
+                    {
+                        "name": "Laporan Penjualan",
+                        "slug": "report-sales"
+                    },
+                    {
+                        "name": "Laporan Pembelian Barang",
+                        "slug": "report-purchase"
+                    },
+                    {
+                        "name": "Laporan Pembelian Peralatan",
+                        "slug": "report-expense"
+                    },
+                    {
+                        "name": "Laporan Stok",
+                        "slug": "report-stock"
+                    }
+                ]
+            },
+            {
+                "name": "Pengaturan",
+                "slug": "settings",
+                "icon": "mdi-settings"
+            }
+        ]
+    }
+}
