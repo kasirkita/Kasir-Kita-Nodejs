@@ -11,10 +11,11 @@ router.get('/category', async (req, res) => {
 
     let query
 
-    if (req.query.keyword) {
+    if (req.query.keyword || req.query.filter !== 'all') {
         query = {
-            $or: [
-                { name: { $regex: '.*' + req.query.keyword + '.*', $options: 'i' } }
+            $and: [
+                { $or: [ { name: { $regex: '.*' + req.query.keyword + '.*', $options: 'i' } }] },
+                { $or: [ { isActive: req.query.filter === 'active' ? true : false } ] }
             ]
         }
     } else {
@@ -53,5 +54,62 @@ router.post('/category', (req, res) => {
         })
     })
 })
+
+
+router.get('/category/:id', (req, res) => {
+    Category.findById(req.params.id).then(category => {
+        return res.json({
+            data: category
+        })
+    }).catch(err => {
+        return res.status(500).json({
+            message: err
+        })
+    })
+})
+
+
+router.post('/category/:id', (req, res) => {
+    Category.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        slug: slugify(req.body.name, {lower: true})
+    }).then(() => {
+        return res.json({
+            message: 'Data berhasil diubah'
+        })
+    }).catch(err => {
+        return res.json({
+            message: err
+        })
+    })
+})
+
+
+router.delete('/category/:id', (req, res) => {
+    Category.findByIdAndRemove(req.params.id).then(() => {
+        return res.json({
+            message: 'Data berhasil dihapus'
+        })
+    }).catch(err => {
+        return res.status(500).json({
+            message: err
+        })
+    })
+})
+
+router.post('/category/toggle/:id', (req, res) => {
+    Category.findByIdAndUpdate(req.params.id, {
+        isActive: req.body.is_active
+    }).then(category => {
+        return res.json({
+            message: `Data ${!category.isActive ? 'Diaktifkan': 'Dinonaktifkan'}`
+        })
+    }).catch(err => {
+        return res.status(500).json({
+            message: err
+        })
+    })
+})
+
 
 module.exports = router
