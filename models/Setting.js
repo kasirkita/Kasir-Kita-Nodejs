@@ -15,4 +15,4 @@ const SettingSchema = schema({
     footer: String,
 })
 
-module.exports = Setting = mongoose.model('Setting', SettingSchema)
+module.exports = Setting = mongoose.model('setting', SettingSchema)

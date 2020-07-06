@@ -5,6 +5,7 @@ const db = require('./config/Keys').mongoURI
 const app = express()
 const users = require('./routes/api/users')
 const configuration = require('./routes/api/configuration')
+const category = require('./routes/api/category')
 var cors = require('cors');
 // const path = require('path')
 
@@ -21,6 +22,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 app.use('/api', users)
 app.use('/api', configuration)
+app.use('/api', category)
 
 const port = process.env.PORT || 5000
 
