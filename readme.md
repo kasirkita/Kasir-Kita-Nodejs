@@ -1,5 +1,5 @@
 ## Kasir Kita v.2.0
-Kasir Kita, aplikasi POS gratis dibuat menggunakan Reactjs
+Kasir Kita, aplikasi POS gratis dibuat menggunakan Nodejs
 
 ## Cara menginstall
 
