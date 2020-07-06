@@ -11,7 +11,7 @@ const SettingSchema = schema({
     phone_number: String,
     divider: String,
     currency: String,
-    tax: schema.Types.Decimal128,
+    tax: Number,
     footer: String,
 })
 

@@ -15,6 +15,9 @@ const PermissionSchema = new schema({
     parent: {
         type:mongoose.Schema.Types.ObjectId,
         ref:'permission'
+    },
+    order: {
+        type: Number
     }
 })
 

@@ -3,113 +3,136 @@
         "data": [
             {
                 "name": "Dashboard",
-                "icon": "mdi-view-dashboard",
-                "slug": "dashboard"
+                "icon": "view-dashboard",
+                "slug": "dashboard",
+                "order": 1
             },
             {
                 "name": "Kasir",
-                "icon": "mdi-desktop-classic",
-                "slug": "cashier"
+                "icon": "desktop-classic",
+                "slug": "cashier",
+                "order": 2
             },
             {
                 "name": "Barang",
                 "slug": "product",
-                "icon": "mdi-calendar-text",
+                "icon": "calendar-text",
+                "order": 3,
                 "children": [
                     {
                         "name": "Data Barang",
-                        "slug": "product"
+                        "slug": "product",
+                        "order": 1
                     },
                     {
                         "name": "Kategori Barang",
-                        "slug": "category"
+                        "slug": "category",
+                        "order": 2
                     },
                     {
                         "name": "Satuan Barang",
-                        "slug": "unit"
+                        "slug": "unit",
+                        "order": 3
                     }
                 ]
             },
             {
                 "name": "Penjualan",
                 "slug": "sales",
-                "icon": "mdi-basket"
+                "icon": "basket",
+                "order": 4
             },
             {
                 "name": "Pembelian",
                 "slug": "purchase",
-                "icon": "mdi-store",
+                "icon": "store",
+                "order": 5,
                 "children": [
                     {
                         "name": "Pembelian Barang",
-                        "slug": "purchase"
+                        "slug": "purchase",
+                        "order": 1
                     },
                     {
                         "name": "Pembelian Peralatan",
-                        "slug": "expense"
+                        "slug": "expense",
+                        "order": 2
                     }
                 ]
             },
             {
                 "name": "Promo",
                 "slug": "discount",
-                "icon": "mdi-ticket-confirmation"
+                "icon": "ticket-confirmation",
+                "order": 6
             },
             {
                 "name": "Stok",
                 "slug": "stock",
-                "icon": "mdi-library-shelves"
+                "icon": "library-shelves",
+                "order": 7
             },
             {
                 "name": "Pengguna",
                 "slug": "user",
-                "icon": "mdi-account",
+                "icon": "account",
+                "order": 8,
                 "children": [
                     {
                         "name": "Pengguna",
-                        "slug": "user"
+                        "slug": "user",
+                        "order": 1
                     },
                     {
                         "name": "Pelanggan",
-                        "slug": "customer"
+                        "slug": "customer",
+                        "order": 2
                     },
                     {
                         "name": "Pemasok",
-                        "slug": "supplier"
+                        "slug": "supplier",
+                        "order": 3
                     },
                     {
                         "name": "Peranan",
-                        "slug": "role"
+                        "slug": "role",
+                        "order": 4
                     }
                 ]
             },
             {
                 "name": "Laporan",
                 "slug": "report-sales",
-                "icon": "mdi-file",
+                "icon": "file",
+                "order": 9,
                 "children": [
                     {
                         "name": "Laporan Penjualan",
-                        "slug": "report-sales"
+                        "slug": "report-sales",
+                        "order": 1
                     },
                     {
                         "name": "Laporan Pembelian Barang",
-                        "slug": "report-purchase"
+                        "slug": "report-purchase",
+                        "order": 2
                     },
                     {
                         "name": "Laporan Pembelian Peralatan",
-                        "slug": "report-expense"
+                        "slug": "report-expense",
+                        "order": 3
                     },
                     {
                         "name": "Laporan Stok",
-                        "slug": "report-stock"
+                        "slug": "report-stock",
+                        "order": 4
                     }
                 ]
             },
             {
                 "name": "Pengaturan",
                 "slug": "settings",
-                "icon": "mdi-settings"
+                "icon": "settings",
+                "order": 10
             }
         ]
     }

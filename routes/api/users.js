@@ -28,7 +28,8 @@ router.post('/register', async (req, res) => {
         const newPermission = await new Permission({
             name: permission.name,
             slug: permission.slug,
-            icon: permission.icon
+            icon: permission.icon,
+            order: permission.order
         })
             .save()
             .then(permission => permission)
@@ -45,7 +46,8 @@ router.post('/register', async (req, res) => {
                 await new Permission({
                     name: child.name,
                     slug: child.slug,
-                    parent: newPermission._id
+                    parent: newPermission._id,
+                    order: child.order
                 })
                     .save()
                     .then(child => child)
@@ -59,19 +61,7 @@ router.post('/register', async (req, res) => {
 
     }))
 
-
     const dataPermission = await Permission.find()
-    const getPermission = await Permission.aggregate([
-        { "$match": { "parent" : null }},
-        {
-            "$lookup": {
-                "from": "permissions",
-                "localField": "_id",
-                "foreignField": "parent",
-                "as": "children"
-            }
-        }
-    ])
     
     const newRole = await new Role({
         name: 'Admin',
@@ -89,6 +79,19 @@ router.post('/register', async (req, res) => {
             message: err
         })
     })
+
+    const getPermission = await Permission.aggregate([
+        { "$match": { "parent" : null }},
+        {
+            "$lookup": {
+                "from": "permissions",
+                "localField": "_id",
+                "foreignField": "parent",
+                "as": "children"
+            }
+        },
+        { "$sort": { "order": 1 } },
+    ])
 
     const newSetting = await new Setting({
         name: 'Kasir Kita',
@@ -155,7 +158,7 @@ router.post('/register', async (req, res) => {
                                             slug: children.slug,        
                                         }
                                     }
-                                })
+                                }).filter(x => x)
 
                                 return {
                                     _id: permission._id,
@@ -258,7 +261,8 @@ router.post('/login', async (req, res) => {
                                                 "foreignField": "parent",
                                                 "as": "children"
                                             }
-                                        }
+                                        },
+                                        { "$sort": { "order": 1 } },
                                     ])
 
                 const isPermissionAllowed = _.where(rolePermission, {allow: true})
@@ -276,7 +280,7 @@ router.post('/login', async (req, res) => {
                                     slug: children.slug,        
                                 }
                             }
-                        })
+                        }).filter(x => x)
 
                         return {
                             _id: permission._id,
