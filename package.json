@@ -28,7 +28,7 @@
     "slugify": "^1.4.4",
     "underscore": "^1.10.2",
     "uuid-token-generator": "^1.0.0",
-    "validator": "^10.2.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
